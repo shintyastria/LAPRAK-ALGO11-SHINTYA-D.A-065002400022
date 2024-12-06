@@ -1,0 +1,131 @@
+TUGAS 1
+def write():
+    nama_file = input("Masukkan nama file: ")
+    nama_kamu = input("Masukkan namamu: ")
+    nim_kamu = input("Masukkan NIM kamu: ")
+    angkatan = input("Masukkan tahun angkatanmu: ")
+    
+    with open(nama_file, "w") as file:
+        file.write(f"Nama: {nama_kamu}\n")
+        file.write(f"NIM: {nim_kamu}\n")
+        file.write(f"Tahun Angkatan: {angkatan}\n")
+    print("File berhasil dibuat dan informasi berhasil ditulis.")
+def read():
+    nama_file = input("Masukkan nama file yang ingin dibaca: ")
+    with open(nama_file, "r") as file:
+        isi = file.read()
+    print("Isi file:")
+    print(isi)
+def append():
+    nama_file = input("Masukkan nama file: ")
+    nama_sahabat = input("Masukkan Nama Sahabatmu: ")
+    catatan_tambahan = input("Masukkan Catatan Tambahan Kamu: ")
+    with open(nama_file, "a") as file:
+        file.write("\nNama Sahabat: " + nama_sahabat)
+        file.write("\nCatatan: " + catatan_tambahan + "\n")
+    
+    print("Data berhasil ditambahkan.")
+def menu():
+    while True:
+        print("\n===== Program File Handling =====")
+        print("1. Membuat dan Menulis File")
+        print("2. Membaca File")
+        print("3. Menambahkan Teks Pada File")
+        print("4. Keluar Dari Program")
+        pilihan = input("Masukkan pilihan berupa angka (1/2/3/4): ")
+        if pilihan == "1":
+            write()
+        elif pilihan == "2":
+            read()
+        elif pilihan == "3":
+            append()
+        elif pilihan == "4":
+            print("Program selesai.")
+            break
+        else:
+            print("Pilihan tidak valid. Coba lagi.")
+menu()
+
+TUGAS 2
+class Data:
+    def __init__(self):
+        self.__nama = None
+        self.__nilai = None
+
+    # Getter untuk nama
+    def get_nama(self):
+        return self.__nama
+
+    # Setter untuk nama
+    def set_nama(self, nama):
+        self.__nama = nama
+
+    # Getter untuk nilai
+    def get_nilai(self):
+        return self.__nilai
+
+    # Setter untuk nilai
+    def set_nilai(self, nilai):
+        self.__nilai = nilai
+
+    # Menghapus data
+    def hapus_data(self):
+        self.__nama = None
+        self.__nilai = None
+
+
+def main():
+    data = Data()
+
+    while True:
+        print("\n===== Program OOP =====")
+        print("1. Mendeklarasikan Objek")
+        print("2. Menampilkan Objek")
+        print("3. Merubah Nilai Objek")
+        print("4. Menghapus Objek")
+        print("5. Keluar Dari Program")
+
+        pilihan = input("Masukkan Pilihan Berupa Angka (1/2/3/4/5): ")
+
+        if pilihan == "1":
+            nama = input("Masukkan Namamu: ")
+            nilai = input("Masukkan Nilai: ")
+            data.set_nama(nama)
+            data.set_nilai(nilai)
+            print("Data Berhasil Ditambahkan")
+
+        elif pilihan == "2":
+            print("\n===== Menampilkan Objek =====")
+            nama = data.get_nama()
+            nilai = data.get_nilai()
+            print(f"Nama: {nama}")
+            print(f"Nilai: {nilai}")
+
+        elif pilihan == "3":
+            print("\n===== Merubah Nilai Objek =====")
+            atribut = input("Apa yang ingin diubah (Nama/Nilai)? ").strip().lower()
+            if atribut == "nama":
+                nama_baru = input("Masukkan Nama Baru: ")
+                data.set_nama(nama_baru)
+                print("Data Nama Berhasil Diubah")
+            elif atribut == "nilai":
+                nilai_baru = input("Masukkan Nilai Baru: ")
+                data.set_nilai(nilai_baru)
+                print("Data Nilai Berhasil Diubah")
+            else:
+                print("Pilihan tidak valid!")
+
+        elif pilihan == "4":
+            data.hapus_data()
+            print("Data Berhasil Dihapus")
+
+        elif pilihan == "5":
+            print("Terima Kasih Sudah Menggunakan Program Saya")
+            break
+
+        else:
+            print("Pilihan tidak valid, silakan coba lagi!")
+
+
+if __name__ == "__main__":
+    main()
